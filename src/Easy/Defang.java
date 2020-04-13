@@ -25,10 +25,11 @@ The given address is a valid IPv4 address.
 class Defang {
 
     public static void main(String args[]){
-        System.out.println(defangIPaddr("255.100.50.0"));
+        System.out.println(dfangIPaddy("255.100.50.0")); //takes an IP address as string
+        System.out.println(numberOfSteps(8)); //takes any int
     }
 
-    public static String defangIPaddr(String address) {
+    private static String dfangIPaddy(String address) {
         String newAddress = "";
         for (int i = 0; i < address.length(); i++){
             if (address.charAt(i) == '.'){
@@ -40,4 +41,23 @@ class Defang {
         }
         return newAddress;
     }
+
+    /*
+    Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+     */
+
+    private static int numberOfSteps(int num) {
+        int steps = 0;
+
+        while (num != 0){
+            ++steps;
+            if (num % 2 == 0){
+                num /= 2;
+            } else num -= 1;
+        }
+
+        return steps;
+    }
+
+    
 }
